@@ -48,18 +48,21 @@ jobs:
         with:
           name: .net-app
       
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_705D52E1925F4C24A1E0F01AF6D3B5BB }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_EBDFA772E4B54E35B4BF6E01E2DFE0C0 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_28A3C506988F4582A0CC06A7872CDAAD }}
+#      - name: Login to Azure
+#        uses: azure/login@v2
+#        with:
+#          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_705D52E1925F4C24A1E0F01AF6D3B5BB }}
+#          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_EBDFA772E4B54E35B4BF6E01E2DFE0C0 }}
+#          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_28A3C506988F4582A0CC06A7872CDAAD }}
 
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v3
+#      - name: Deploy to Azure Web App
+#        id: deploy-to-webapp
+#        uses: azure/webapps-deploy@v3
+#        with:
+#          app-name: 'sample-deployment'
+#          slot-name: 'Production'
+#          package: .
+
+      - uses: azure/webapps-deploy@v2
         with:
-          app-name: 'sample-deployment'
-          slot-name: 'Production'
-          package: .
-          
+          publish-profile: <publishData><publishProfile profileName="sample-deployment - Web Deploy" publishMethod="MSDeploy" publishUrl="sample-deployment-adg7b6d3d5hwbcbp.scm.austriaeast-01.azurewebsites.net:443" msdeploySite="sample-deployment" userName="$sample-deployment" userPWD="4wBYByk6RFNBJdvjk3uWhjTj0KemBBCdwvDnsgpHqGCjkc2GGtu4hNYvRJod" destinationAppUrl="https://sample-deployment-adg7b6d3d5hwbcbp.austriaeast-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="sample-deployment - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-ate-003.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="sample-deployment\$sample-deployment" userPWD="4wBYByk6RFNBJdvjk3uWhjTj0KemBBCdwvDnsgpHqGCjkc2GGtu4hNYvRJod" destinationAppUrl="https://sample-deployment-adg7b6d3d5hwbcbp.austriaeast-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="sample-deployment - Zip Deploy" publishMethod="ZipDeploy" publishUrl="sample-deployment-adg7b6d3d5hwbcbp.scm.austriaeast-01.azurewebsites.net:443" userName="$sample-deployment" userPWD="4wBYByk6RFNBJdvjk3uWhjTj0KemBBCdwvDnsgpHqGCjkc2GGtu4hNYvRJod" destinationAppUrl="https://sample-deployment-adg7b6d3d5hwbcbp.austriaeast-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile></publishData><publishData><publishProfile profileName="sample-deployment - Web Deploy" publishMethod="MSDeploy" publishUrl="sample-deployment-adg7b6d3d5hwbcbp.scm.austriaeast-01.azurewebsites.net:443" msdeploySite="sample-deployment" userName="$sample-deployment" userPWD="4wBYByk6RFNBJdvjk3uWhjTj0KemBBCdwvDnsgpHqGCjkc2GGtu4hNYvRJod" destinationAppUrl="https://sample-deployment-adg7b6d3d5hwbcbp.austriaeast-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="sample-deployment - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-ate-003.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="sample-deployment\$sample-deployment" userPWD="4wBYByk6RFNBJdvjk3uWhjTj0KemBBCdwvDnsgpHqGCjkc2GGtu4hNYvRJod" destinationAppUrl="https://sample-deployment-adg7b6d3d5hwbcbp.austriaeast-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="sample-deployment - Zip Deploy" publishMethod="ZipDeploy" publishUrl="sample-deployment-adg7b6d3d5hwbcbp.scm.austriaeast-01.azurewebsites.net:443" userName="$sample-deployment" userPWD="4wBYByk6RFNBJdvjk3uWhjTj0KemBBCdwvDnsgpHqGCjkc2GGtu4hNYvRJod" destinationAppUrl="https://sample-deployment-adg7b6d3d5hwbcbp.austriaeast-01.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile></publishData>
