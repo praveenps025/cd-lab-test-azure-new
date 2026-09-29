@@ -37,6 +37,43 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+      # 8. Build Docker image
+      - name: Build Docker image
+        run: |
+          docker build -t bmi2026lab:test .
+
+      # 9. Verify Docker image exists
+      - name: Verify Docker image
+        run: |
+          docker images
+          docker image inspect bmi2026lab:test
+
+      # 10. Run Docker container for verification
+      - name: Run Docker container
+        run: |
+          docker run -d \
+            --name bmi-test-container \
+            -p 8080:8080 \
+            bmi2026lab:test
+
+      # 11. Verify Docker container is running
+      - name: Verify Docker container
+        run: |
+          sleep 10
+          docker ps
+          docker logs bmi-test-container
+
+      # 12. Test application inside Docker container
+      - name: Test Docker application
+        run: |
+          curl --fail http://localhost:8080
+          
+      # 13. Stop test container
+      - name: Stop Docker container
+        if: always()
+        run: |
+          docker stop bmi-test-container || true
+          docker rm bmi-test-container || true
 
   deploy:
     runs-on: ubuntu-latest
