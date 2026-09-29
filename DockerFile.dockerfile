@@ -12,7 +12,7 @@ RUN dotnet publish bmi2021/bmi2021.csproj \
     -o /app/publish \
     --no-restore
 
-# Runtime stage
+# Runtime stagee
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 
 WORKDIR /app
