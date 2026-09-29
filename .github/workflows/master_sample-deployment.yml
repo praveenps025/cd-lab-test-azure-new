@@ -38,6 +38,9 @@ jobs:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
       # 8. Build Docker image
+      - name: Find path
+        run: ls
+        
       - name: Build Docker image
         run: |
           docker build -t bmi2026lab:test .
