@@ -16,7 +16,7 @@ namespace bmiUnitTestProject
             // 11 stones, 0 pounds, 5 feet 10 inches
             BMI bmi = new BMI
             {
-                WeightStones = 11,
+                #WeightStones = 11,
                 WeightPounds = 0,
                 HeightFeet = 5,
                 HeightInches = 10

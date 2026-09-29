@@ -24,7 +24,7 @@ jobs:
           dotnet-version: '10.x'
 
       - name: Run unit tests 
-        run: dotnet test /bmi2026lab/bmiUnitTestProject/UnitTest1.cs --configuration Release --no-restore --verbosity normal
+        run: dotnet test --configuration Release --no-restore --verbosity normal
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
